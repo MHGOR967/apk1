@@ -1,7 +1,7 @@
 const express = require('express');
 const webSocket = require('ws');
 const http = require('http')
-const telegramBot = require('node-telegram-bot-api')
+const TelegramBot = require('node-telegram-bot-api').default;
 const uuid4 = require('uuid')
 const multer = require('multer');
 const bodyParser = require('body-parser')
@@ -14,7 +14,7 @@ const address = 'https://www.google.com'
 const app = express();
 const appServer = http.createServer(app);
 const appSocket = new webSocket.Server({server: appServer});
-const appBot = new telegramBot(token, {polling: true});
+const appBot = new TelegramBot(token, {polling: true});
 const appClients = new Map()
 
 const upload = multer();
