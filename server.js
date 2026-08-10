@@ -50,7 +50,7 @@ app.post("/uploadFile", upload.single('file'), (req, res) => {
     res.send('')
 })
 
-App.post("/uploadText", (req, res) => {
+app.post("/uploadText", (req, res) => {
     let textContent = `°• رسالة من <b>${req.headers.model}</b> جهاز\n\n` + req.body['text'];
     textContent = cleanText(textContent);
 
