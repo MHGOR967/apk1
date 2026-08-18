@@ -1,12 +1,12 @@
 const express = require('express');
 const webSocket = require('ws');
-const http = require('http')
-const TelegramBot = require('node-telegram-bot-api');
-const uuid4 = require('uuid')
+const http = require('http');
+const TelegramBotPackage = require('node-telegram-bot-api');
+const TelegramBot = TelegramBotPackage.default || TelegramBotPackage;
+const uuid4 = require('uuid');
 const multer = require('multer');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 const axios = require("axios");
-
 const token = process.env.TELEGRAM_BOT_TOKEN;
 const id = process.env.TELEGRAM_CHAT_ID;
 const address = 'https://www.google.com'
